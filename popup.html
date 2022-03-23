@@ -1,11 +1,42 @@
 <html>
   <head>
-    <title> Refresh It</title>
+    <title> REFRESH 1T</title>
+    <style type="text/css">
+      body{
+        margin: 5px;
+      }
+      h1{
+        font-size: 15px;
+        text-align: center;
+        color: #e2ee3e;
+      }
+      button {
+        border: 2px solid #e2ee3e;
+        border-radius: 5px;
+        background-color: #272729;
+        color: #e2ee3e;
+        padding: 14px 28px;
+        font-size: 16px;
+        cursor: pointer;
+        text-align: center;
+        display: inline-block;
+        margin: 4px 2px;
+      }
+      .hov {
+        border-color: #e2ee3e;
+        color: white;
+      }
+      .hov:hover {
+        background: #e2ee3e;
+        color: #272729;
+      }
+    </style>
   </head>
-  <body>
-      <img src="./img/logo48.png" id="LogoImage">
-      <button id="sampleSecond" value="0.1">Start</button>
-      <button id="min15" value="15">Stop</button>
+  <body style="background-color:#272729;">
+      <!--<img src="./img/logo48.png" id="LogoImage"> -->
+      <h1>Refresh Webpage</h1>
+      <button id="start" class="button hov">Start</button>
+      <button id="stop" class="button hov">Stop</button>
     <script src="popup.js"></script>
   </body>
 </html>
