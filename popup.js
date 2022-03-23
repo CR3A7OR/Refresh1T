@@ -16,6 +16,4 @@ document.getElementById('stop').addEventListener('click', function() {
 
     });
 });
-// https://stackoverflow.com/questions/38561136/chrome-extension-to-change-dom-with-a-button-in-extension-popup
 
-// on stop send hash of value 0 to content
