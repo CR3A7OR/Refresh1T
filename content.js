@@ -54,29 +54,11 @@ function digest(){
                         location.reload(true)
                     }
                     else {
-                        //console.log('OLD HASH:',preHash);
-                        //console.log('NEW HASH:', hash);
                         localStorage.setItem('hash', hash);
                     }        
                 }
             });
             
-            /* OLD METHOD USING BACKGROUND.JS
-            chrome.runtime.sendMessage({
-                from: 'content',
-                subject: hash,
-                text: window.tab,
-            }, (response) => { 
-            
-                if (response == "true"){
-                    location.reload(true)
-                }
-                else {
-                    console.log('NEW HASH:', response);
-                } 
-            
-            });
-            */
         });
     });
 }
