@@ -1,5 +1,7 @@
 let hash = '';
+var preHash = '';
 
+/* FUNCTION CREATES HASH OF PARAMETER PASSED */
 async function digestMessage(message) {
     const utfENcode = new TextEncoder().encode(message);                     
     const hashBuffer = await crypto.subtle.digest('SHA-256', utfENcode);           
@@ -8,6 +10,7 @@ async function digestMessage(message) {
     return hashHex;
 }
 
+/* RETRIEVES VALUE OF POPUP.JS ACTIONS */
 chrome.storage.local.get("action").then(
     function(action) {
         if (action.action == "start"){
@@ -16,12 +19,16 @@ chrome.storage.local.get("action").then(
     }
 )
 
+/* LISTENS FOR CHANGE IN THE VALUE OF action TO CONTINUE OR STOP  */
 chrome.storage.onChanged.addListener(function(changes) {
-    //if(request.action === 'start') {
     var action = changes['action'];
     if(action.newValue === 'start') {
-        digest();
-        location.reload(true);
+        /* ESTABLISHES INITIAL HASH VALUE OF WEBSITE AND STORES IT */
+        digestMessage(document.documentElement.innerHTML).then(digestHex => {
+            localStorage.setItem('hash', digestHex);
+            digest();
+        });
+        
     }
     else if (action.newValue === 'stop') {
         console.log('DONE');
@@ -29,25 +36,47 @@ chrome.storage.onChanged.addListener(function(changes) {
     return true;
 });
 
+/* MAIN CODE THAT REFRESHES SITE IF HASH VALUE IS THE SAME AND  */
 function digest(){
-    
-    digestMessage(document.documentElement.innerHTML).then(digestHex => {
+    var tab;
+    /* RETRIEVES IF OF TAB THAT INTERACTED WITH popup.js */
+    chrome.storage.local.get("tabID",function(item) {
+        window.tab=item["tabID"]
 
-        hash = digestHex
-        console.log(hash);
-        chrome.runtime.sendMessage({
-            from: 'content',
-            subject: hash,
-        }, (response) => { 
-        
-            if (response == "true"){
-                location.reload(true)
-            }
-            else {
-                console.log('NEW HASH:', response);
-            } 
-        
+        /* HASHES SOURCE CODE OF WEBSITE */
+        digestMessage(document.documentElement.innerHTML).then(digestHex => {
+            hash = digestHex;
+            /* ACQUIRES TAB ID OF CURRENT TABS AND CHECKS TO ONLY REFRESH MATCHING TAB */
+            chrome.runtime.sendMessage({ from: 'content', text: "getID" }, mytabId => {
+                if (window.tab === mytabId.tab){
+                    preHash = localStorage.getItem('hash');
+                    if (hash == preHash || preHash == null){
+                        location.reload(true)
+                    }
+                    else {
+                        //console.log('OLD HASH:',preHash);
+                        //console.log('NEW HASH:', hash);
+                        localStorage.setItem('hash', hash);
+                    }        
+                }
+            });
+            
+            /* OLD METHOD USING BACKGROUND.JS
+            chrome.runtime.sendMessage({
+                from: 'content',
+                subject: hash,
+                text: window.tab,
+            }, (response) => { 
+            
+                if (response == "true"){
+                    location.reload(true)
+                }
+                else {
+                    console.log('NEW HASH:', response);
+                } 
+            
+            });
+            */
         });
-
     });
 }
