@@ -1,3 +1,11 @@
+/*
+ * @module popup.js
+ * - handle input for all check and text box elements
+ * - start or stop functionality
+ * @author CR3AT0R
+ * @license MIT
+ */
+
 // On start click, start content.js
 document.getElementById('start').addEventListener('click', function() {
     chrome.tabs.query({ active: true, currentWindow: true}, function(activeTabs) {
