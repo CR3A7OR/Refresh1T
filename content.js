@@ -1,3 +1,10 @@
+/*
+ * @module content.js
+ * - apply hash interaction to javascript elements
+ * @author CR3AT0R
+ * @license MIT
+ */
+
 let hash = '';
 var preHash = '';
 
