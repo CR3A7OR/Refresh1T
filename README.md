@@ -17,13 +17,12 @@ Chrome Extension for easily automating the page refresh
 ### Chrome Store: 
 ` currently under review `
 
-### Developer Mode:
-	- Download source code
-	- Open chrome extensions
-	- Enable developer mode
-	- Click "load unpacked"
-	- Select downloaded source code
-
+### Developer Mode:- 
+» Download source code \
+» Open [chrome extensions](chrome://extensions) \
+» Enable developer mode \
+» Click "load unpacked" \
+» Select downloaded source code 
    
 ## »│ Usage
 » Open tab you want to have refreshed \
