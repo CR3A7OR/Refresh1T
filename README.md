@@ -13,23 +13,27 @@
 Chrome Extension for easily automating the page refresh
 
 ## »│ Installation
+The extension can be installed two ways: 
 
 ### Chrome Store: 
-` currently under review `
 
+> - » Visit the [chrome store](https://chrome.google.com/webstore/search/Refresh1T) 
+> - » Click `Add to Chrome`
+ 
 ### Developer Mode:
 
-&nbsp; » Download source code \
-&nbsp; » Open [chrome extensions](chrome://extensions) \
-&nbsp; » Enable developer mode \
-&nbsp; » Click "load unpacked" \
-&nbsp; » Select downloaded source code 
+> - » Download source code
+> - » Open [chrome extensions](chrome://extensions)
+> - » Enable developer mode
+> - » Click "load unpacked"
+> - » Select downloaded source code 
    
 ## »│ Usage
-&nbsp; » Open tab you want to have refreshed \
-&nbsp; » Click "Start" on extension \
-&nbsp; » Continue your normal activities and tune in when it stops refreshing
+> - » Open tab you want to have refreshed
+> - » Click "Start" on extension
+> - » Continue your normal activities and tune in when it stops refreshing
 
+> - » Click Stop to manually stop refreshing
 
 # Firefox
 Under development...
