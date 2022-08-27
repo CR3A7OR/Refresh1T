@@ -32,7 +32,6 @@ The extension can be installed two ways:
 > - » Open tab you want to have refreshed
 > - » Click "Start" on extension
 > - » Continue your normal activities and tune in when it stops refreshing
-
 > - » Click Stop to manually stop refreshing
 
 # Firefox
