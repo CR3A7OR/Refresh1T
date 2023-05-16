@@ -40,3 +40,6 @@ Under development...
 <div align="center">
  <p> │ Refresh, Reload, Repeat │ </p>
 </div>
+<div align="center">
+--- [ 𝗖𝗥𝟯𝗔𝗧𝟬𝗥 ] // Designed By --- 
+</div>
